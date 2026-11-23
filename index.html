@@ -219,6 +219,83 @@ nav{
 .track i{color:var(--lavender);font-style:normal}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
+.logo{display:inline-block;line-height:1.15}
+.logo .parent{
+    display:block;
+    font-family:var(--body);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:1px;
+    color:var(--green-bright);
+    margin-top:3px;
+}
+.parent-badge{
+    display:block;
+    font-family:var(--display);
+    font-weight:800;
+    font-style:italic;
+    font-size:clamp(18px,3vw,26px);
+    color:var(--mint);
+    margin-bottom:18px;
+    opacity:0;
+    animation:rise .9s .2s forwards;
+}
+
+/* ---------- REVIEWS ---------- */
+.reviews{
+    background:var(--white);
+    border-bottom:4px solid var(--purple);
+}
+.review-count{
+    font-family:var(--display);
+    font-weight:900;
+    font-size:clamp(34px,6vw,64px);
+    line-height:1.15;
+    color:var(--purple);
+    margin-bottom:10px;
+}
+.review-count b{color:var(--green)}
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:28px;
+    max-width:1100px;
+    margin:50px auto 0;
+}
+.review{
+    position:relative;
+    text-align:left;
+    background:var(--lavender);
+    border-left:8px solid var(--green);
+    border-radius:20px;
+    padding:48px 26px 26px;
+    font-weight:500;
+    line-height:1.7;
+    transition:transform .35s,background .35s,color .35s;
+}
+.review::before{
+    content:"\201C";
+    position:absolute;top:2px;left:20px;
+    font-family:var(--display);
+    font-weight:900;
+    font-size:80px;
+    line-height:1;
+    color:var(--purple-royal);
+}
+.review:nth-child(even){border-left-color:var(--purple-royal)}
+.review:hover{transform:translateY(-8px);background:var(--purple-deep);color:var(--white)}
+.review .who{
+    display:block;
+    margin-top:14px;
+    font-weight:800;
+    color:var(--green);
+}
+.review:hover .who{color:var(--green-bright)}
+.reviews .review{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .35s,background .35s,color .35s}
+.reviews.active .review{opacity:1;transform:none}
+.reviews.active .review:nth-child(2){transition-delay:.15s,0s,0s,0s}
+.reviews.active .review:nth-child(3){transition-delay:.3s,0s,0s,0s}
+
 /* ---------- STATS ---------- */
 .stats{
     display:grid;
@@ -451,9 +528,10 @@ footer .motto{color:var(--green-bright);font-weight:700}
 <body>
 
 <nav>
-    <a href="#home" class="logo">SWATH <b>ACADEMY</b></a>
+    <a href="#home" class="logo">SWATH <b>ACADEMY</b><small class="parent">Part of Thillai Data Tech</small></a>
     <div class="links">
         <a href="#home">Home</a>
+        <a href="#reviews">Reviews</a>
         <a href="#courses">Courses</a>
         <a href="#about">About</a>
         <a href="#admission">Admission</a>
@@ -480,6 +558,40 @@ footer .motto{color:var(--green-bright);font-weight:700}
         <a href="#courses" class="btn">Explore Our Courses</a>
     </div>
 </div>
+
+<section class="reviews reveal" id="reviews">
+    <h2>Student Reviews</h2>
+    <p class="review-count"><b>30+</b> students have reviewed Swath Academy</p>
+    <p class="sub">Hear it from the students who learn with us.</p>
+
+    <div class="review-grid">
+        <!-- Example reviews: replace the text and names below with real student reviews -->
+        <div class="review">
+            Good coaching! The teacher explains every topic in a very easy way.
+            <span class="who">Priya, 10th Standard</span>
+        </div>
+        <div class="review">
+            My Hindi speaking has improved a lot. Now I can talk confidently with everyone.
+            <span class="who">Arun, Hindi Spoken</span>
+        </div>
+        <div class="review">
+            Regular tests and revision helped me prepare well for my board exams.
+            <span class="who">Karthik, 12th Standard</span>
+        </div>
+        <div class="review">
+            Very friendly classes and the teacher gives personal attention to each student.
+            <span class="who">Divya, 10th Standard</span>
+        </div>
+        <div class="review">
+            I joined the online spoken Hindi class and it was very useful and clear.
+            <span class="who">Meena, Hindi Spoken (Online)</span>
+        </div>
+        <div class="review">
+            Best coaching for concepts. Doubts are cleared patiently every time.
+            <span class="who">Suresh, 12th Standard</span>
+        </div>
+    </div>
+</section>
 
 <div class="marquee" aria-hidden="true">
     <div class="track">
@@ -566,6 +678,7 @@ footer .motto{color:var(--green-bright);font-weight:700}
 <footer>
     <h3>SWATH ACADEMY</h3>
     <p class="motto">Learn • Speak • Succeed</p>
+    <p>Part of <strong>Thillai Data Tech</strong></p>
     <p>Email: swathtuitioncenter@gmail.com</p>
     <p>© 2026 Swath Academy. All Rights Reserved.</p>
 </footer>
